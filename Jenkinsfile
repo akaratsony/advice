@@ -33,8 +33,7 @@ pipeline {
             steps {
                 script {
                     // Cowsay telepítése, ha szükséges
-                    sh 'sudo apt-get install cowsay -y'
-                    
+                    sh ''' export PATH="$PATH:/usr/games:/usr/local/games"'''
                     // Mock Deploy - Advice megjelenítése
                     sh '''
                         /usr/games/cowsay -f $(ls /usr/share/cowsay/cows | shuf -n 1) < ${WORKSPACE}/advice.message
