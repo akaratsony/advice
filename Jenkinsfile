@@ -28,16 +28,6 @@ pipeline {
                 }
             }
         }
-        stage('Display Advice') {
-            steps {
-                script {
-                    sh 'sudo apt-get install cowsay -y'
-                    // Mock Deploy
-                    sh '''
-                        cat ${WORKSPACE}/advice.message | /usr/games/cowsay -f $(ls /usr/share/cowsay/cows | shuf -n 1)
-                    '''
-                }
-            }
-        }
+       
     }
 }
