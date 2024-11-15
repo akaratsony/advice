@@ -1,7 +1,7 @@
 pipeline {
     agent any
     stages {
-        stage('Build') {
+        stage('Create File') {
             steps {
                 script {
                     // Fájl létrehozása a home könyvtárban
