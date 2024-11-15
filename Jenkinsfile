@@ -33,10 +33,10 @@ pipeline {
             steps {
                 script {
                     // Cowsay telepítése, ha szükséges
-                    sh ''' export PATH="$PATH:/usr/games:/usr/local/games"'''
+                    sh ''' export PATH="$PATH://usr/bin/cowsay:/usr/local/games"'''
                     // Mock Deploy - Advice megjelenítése
                     sh '''
-                        /usr/games/cowsay -f $(ls /usr/share/cowsay/cows | shuf -n 1) < ${WORKSPACE}/advice.message
+                        /usr/bin/cowsay -f $(ls //usr/bin/cowsay/ows | shuf -n 1) < ${WORKSPACE}/advice.message
                     '''
                 }
             }
