@@ -10,7 +10,23 @@ pipeline {
                 }
             }
         }
- 
+        stage('Extract and Check Advice') {
+            steps {
+                script {
+                    // Advice kinyerése és mentése
+                    sh 'cat ${WORKSPACE}/advice.json | jq -r .slip.advice > ${WORKSPACE}/advice.message'
+                    
+                    // Szóellenőrzés
+                    sh '''
+                        if [ $(wc -w < ${WORKSPACE}/advice.message) -gt 5 ]; then
+                            echo "Advice has more than 5 words";
+                        else
+                            echo "Advice - $(cat ${WORKSPACE}/advice.message) has 5 words or less";
+                            exit 1;
+                        fi
+                    '''
+                }
+            }
+        }
        
     }
-}
