@@ -36,7 +36,7 @@ pipeline {
                     sh ''' export PATH="$PATH://usr/bin/cowsay:/usr/local/games"'''
                     // Mock Deploy - Advice megjelenítése
                     sh '''
-                        /usr/bin/cowsay -f $(ls //usr/bin/cowsay/ows | shuf -n 1) < ${WORKSPACE}/advice.message
+                        /usr/bin/cowsay -f $(ls //usr/bin/cowsay/cows | shuf -n 1) < ${WORKSPACE}/advice.message
                     '''
                 }
             }
