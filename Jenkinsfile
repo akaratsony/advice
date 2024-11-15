@@ -28,5 +28,5 @@ pipeline {
                 }
             }
         }
-       
-    }
+    } // <-- Ez a zárójel hiányzott
+}
