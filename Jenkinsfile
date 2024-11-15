@@ -14,8 +14,8 @@ pipeline {
             steps {
                 script {
                     // Advice kinyerése és mentése
-                    sh 'cat ${WORKSPACE}/advice.json | jq -r .slip.advice > ${WORKSPACE}/advice.message'
-                    
+                    sh 'cat advice.json | jq -r .slip.advice > advice.message'
+                    sh 'cat advice.message'
            
                 }
             }
