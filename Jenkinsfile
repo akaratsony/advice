@@ -14,14 +14,14 @@ pipeline {
             steps {
                 script {
                     // Advice kinyerése és mentése
-                    sh 'cat ${env.WORKSPACE}/advice.json | jq -r .slip.advice > ${env.WORKSPACE}/advice.message'
+                    sh 'cat ${WORKSPACE}/advice.json | jq -r .slip.advice > ${WORKSPACE}/advice.message'
                     
                     // Szóellenőrzés
                     sh '''
-                        if [ $(wc -w < ${env.WORKSPACE}/advice.message) -gt 5 ]; then
+                        if [ $(wc -w < ${WORKSPACE}/advice.message) -gt 5 ]; then
                             echo "Advice has more than 5 words";
                         else
-                            echo "Advice - $(cat ${env.WORKSPACE}/advice.message) has 5 words or less";
+                            echo "Advice - $(cat ${WORKSPACE}/advice.message) has 5 words or less";
                             exit 1;
                         fi
                     '''
@@ -37,7 +37,7 @@ pipeline {
                     
                     // Mock Deploy - Advice megjelenítése
                     sh '''
-                        /usr/games/cowsay -f $(ls /usr/share/cowsay/cows | shuf -n 1) < ${env.WORKSPACE}/advice.message
+                        /usr/games/cowsay -f $(ls /usr/share/cowsay/cows | shuf -n 1) < ${WORKSPACE}/advice.message
                     '''
                 }
             }
