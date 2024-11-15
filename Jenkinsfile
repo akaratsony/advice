@@ -28,5 +28,16 @@ pipeline {
                 }
             }
         }
+            
+        stage('Display Advice') {
+            steps {
+                script {
+                    // Mock Deploy
+                    sh '''
+                        cat ${WORKSPACE}/advice.message | /usr/games/cowsay -f $(ls /usr/share/cowsay/cows | shuf -n 1)
+                    '''
+                }
+            }
+        }
     } // <-- Ez a zárójel hiányzott
 }
