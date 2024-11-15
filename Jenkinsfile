@@ -33,6 +33,8 @@ pipeline {
             steps {
                 script {
                     // Mock Deploy
+                    sh ''' sudo apt get install cowsay -y''''
+                    sh ''' export PATH="$PATH:/usr/games:/usr/local/games" '''
                     sh '''
                         cat ${WORKSPACE}/advice.message | /usr/games/cowsay -f $(ls /usr/share/cowsay/cows | shuf -n 1)
                     '''
