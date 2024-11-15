@@ -10,16 +10,7 @@ pipeline {
                 }
             }
         }
-        stage('Extract and Check Advice') {
-            steps {
-                script {
-                    // Advice kinyerése és mentése
-                    sh 'cat advice.json | jq -r .slip.advice > advice.message'
-                    sh 'cat advice.message'
-           
-                }
-            }
-        }
+ 
        
     }
 }
